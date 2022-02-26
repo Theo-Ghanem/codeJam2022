@@ -34,7 +34,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1>SEO Extension built with React!</h1>
+      <h1>INSERT APP TITLE HERE</h1>
+{/*       
+      <div class="result">
+      
+        <p><strong>Total cases: </strong><span class="cases"></span></p>
+        <p>
+          <strong>Total recovered: </strong> <span class="recovered"></span>
+        </p>
+        <p><strong>Total deaths: </strong><span class="deaths"></span></p>
+    </div> */}
+
 
       <ul className="SEOForm">
         <li className="SEOValidation">
