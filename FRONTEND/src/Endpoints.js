@@ -48,7 +48,7 @@ export const getPosts = async () => {
 
 export const getBasicInsta = async () => { 
   const ret = await axios.post('${backendUrl}/insta-basics',body); 
-  const basics = ret.data(0)
+  const basics = ret.data[0]
     .map((i) => {
       return {
         username: i.username,
@@ -58,14 +58,14 @@ export const getBasicInsta = async () => {
       }
     })
   console.log(ret.data);
-  const dailyData = ret.data(1)
+  const dailyData = ret.data[1]
     .map((x)=> { 
       return { 
-        new_followers = x.follower_count,
-        daily_clicks = x.website_click,
-        daily_profile_views = x.profile_views,
-        daily_direction = x.get_directions_clicks,
-        daily_email_count = x.email_contacts,
+        new_followers : x.follower_count,
+        daily_clicks : x.website_click,
+        daily_profile_views : x.profile_views,
+        daily_direction : x.get_directions_clicks,
+        daily_email_count : x.email_contacts,
       }
     })
   return {basics, dailyData};
