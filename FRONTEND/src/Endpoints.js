@@ -64,15 +64,12 @@ export const getGeneralIG = async () => {
     biography: ret.generalInfo.biography,
     media_count: ret.generalInfo.media_count,
     id: ret.generalInfo.id,
-    clickArray: ret.parsedClickInfo
-
-
+    clickArray: ret.parsedClickInfo,
   };
 };
 
 export const getInstagramReach = async () => {
-  const ret = (await axios.post(`${backendUrl}/ig-period-reach`, body))
-    .data;
-    console.log(ret)
+  const ret = (await axios.post(`${backendUrl}/ig-period-reach`, body)).data;
+  console.log(ret);
   return ret.impression_data;
 };

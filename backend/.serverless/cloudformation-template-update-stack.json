@@ -205,7 +205,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/code-jam/dev/1645964484482-2022-02-27T12:21:24.482Z/code-jam.zip"
+          "S3Key": "serverless/code-jam/dev/1645968917682-2022-02-27T13:35:17.682Z/code-jam.zip"
         },
         "Handler": "lambdas/http-load-all.handler",
         "Runtime": "nodejs12.x",
@@ -235,7 +235,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/code-jam/dev/1645964484482-2022-02-27T12:21:24.482Z/code-jam.zip"
+          "S3Key": "serverless/code-jam/dev/1645968917682-2022-02-27T13:35:17.682Z/code-jam.zip"
         },
         "Handler": "lambdas/http-get-sentiment.handler",
         "Runtime": "nodejs12.x",
@@ -265,7 +265,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/code-jam/dev/1645964484482-2022-02-27T12:21:24.482Z/code-jam.zip"
+          "S3Key": "serverless/code-jam/dev/1645968917682-2022-02-27T13:35:17.682Z/code-jam.zip"
         },
         "Handler": "lambdas/http-get-page-basics.handler",
         "Runtime": "nodejs12.x",
@@ -295,7 +295,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/code-jam/dev/1645964484482-2022-02-27T12:21:24.482Z/code-jam.zip"
+          "S3Key": "serverless/code-jam/dev/1645968917682-2022-02-27T13:35:17.682Z/code-jam.zip"
         },
         "Handler": "lambdas/http-get-all-events.handler",
         "Runtime": "nodejs12.x",
@@ -325,7 +325,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/code-jam/dev/1645964484482-2022-02-27T12:21:24.482Z/code-jam.zip"
+          "S3Key": "serverless/code-jam/dev/1645968917682-2022-02-27T13:35:17.682Z/code-jam.zip"
         },
         "Handler": "lambdas/http-get-all-posts.handler",
         "Runtime": "nodejs12.x",
@@ -355,7 +355,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/code-jam/dev/1645964484482-2022-02-27T12:21:24.482Z/code-jam.zip"
+          "S3Key": "serverless/code-jam/dev/1645968917682-2022-02-27T13:35:17.682Z/code-jam.zip"
         },
         "Handler": "lambdas/http-get-instagram-basics.handler",
         "Runtime": "nodejs12.x",
@@ -385,7 +385,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/code-jam/dev/1645964484482-2022-02-27T12:21:24.482Z/code-jam.zip"
+          "S3Key": "serverless/code-jam/dev/1645968917682-2022-02-27T13:35:17.682Z/code-jam.zip"
         },
         "Handler": "lambdas/http-get-ig-period-reach.handler",
         "Runtime": "nodejs12.x",
@@ -408,74 +408,74 @@
         "GetDashallDashigDashperiodDashreachLogGroup"
       ]
     },
-    "LoadDasheverythingLambdaVersionPd875bvKJAjV8jqve6dTZ6jD0UnOx469UYjO4cH70": {
+    "LoadDasheverythingLambdaVersionTOzRFVtKFomDsjKOVZ3rkblN7A6Sg14bM4Mz9wbhuE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "LoadDasheverythingLambdaFunction"
         },
-        "CodeSha256": "ze3GsVlCdpBqeql+KlyWHbkdwByXdg+bPlbNP0grDQg="
+        "CodeSha256": "o2hV1N861K4/ASmZU9LnDe4/P7pGFCHCOcMzacFyjg0="
       }
     },
-    "GetDashsentimentLambdaVersionBdyGfeQQdBvQYe19fPtvKkMyBso2Oq9tazzhFmTM": {
+    "GetDashsentimentLambdaVersionjuJImQoOsCAsxmCQYlNaEmXahvC8CMhYQ4RXColjU7c": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashsentimentLambdaFunction"
         },
-        "CodeSha256": "ze3GsVlCdpBqeql+KlyWHbkdwByXdg+bPlbNP0grDQg="
+        "CodeSha256": "o2hV1N861K4/ASmZU9LnDe4/P7pGFCHCOcMzacFyjg0="
       }
     },
-    "GetDashpageDashbasicsLambdaVersionllVSExZSqPAndKoO4dVjtv7gECKEKXKmfiFp1rNg": {
+    "GetDashpageDashbasicsLambdaVersionLNw1hpRir5OX4w6ndd24r4oPdf5uZHL7p0JGOKCsQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashpageDashbasicsLambdaFunction"
         },
-        "CodeSha256": "ze3GsVlCdpBqeql+KlyWHbkdwByXdg+bPlbNP0grDQg="
+        "CodeSha256": "o2hV1N861K4/ASmZU9LnDe4/P7pGFCHCOcMzacFyjg0="
       }
     },
-    "GetDashallDasheventsLambdaVersionqDOIj7AZasXnEIpLbYNQUItq17eM8yqdGgbYSMkZE": {
+    "GetDashallDasheventsLambdaVersion4eKO6HDVxztLmUOuiNKbAcbMkBjgDlHRpMS42BbxJQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashallDasheventsLambdaFunction"
         },
-        "CodeSha256": "ze3GsVlCdpBqeql+KlyWHbkdwByXdg+bPlbNP0grDQg="
+        "CodeSha256": "o2hV1N861K4/ASmZU9LnDe4/P7pGFCHCOcMzacFyjg0="
       }
     },
-    "GetDashallDashpostsLambdaVersion9M0yi9nx1LGMSPdbsAiHPUa8zPb2wJGgHw2QUCikKY": {
+    "GetDashallDashpostsLambdaVersionW6V6hngvZe7REoyShEgyqsOManMvg8cqxeRHXdHJdc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashallDashpostsLambdaFunction"
         },
-        "CodeSha256": "ze3GsVlCdpBqeql+KlyWHbkdwByXdg+bPlbNP0grDQg="
+        "CodeSha256": "o2hV1N861K4/ASmZU9LnDe4/P7pGFCHCOcMzacFyjg0="
       }
     },
-    "GetDashallDashinstagramDashbasicsLambdaVersionzIlvCt4IE8TrHrklpUQ1tJMBpdkSaHCE0iDBh1GVEPo": {
+    "GetDashallDashinstagramDashbasicsLambdaVersionFMs7n1SyzsNbjY64aIxlLRXhmlbMYGoYLjzLz6SCIQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashallDashinstagramDashbasicsLambdaFunction"
         },
-        "CodeSha256": "ze3GsVlCdpBqeql+KlyWHbkdwByXdg+bPlbNP0grDQg="
+        "CodeSha256": "o2hV1N861K4/ASmZU9LnDe4/P7pGFCHCOcMzacFyjg0="
       }
     },
-    "GetDashallDashigDashperiodDashreachLambdaVersionMIGMTcFnQP26kWJhcgJhXwOh7TNwrE6qVW1cDhm8o": {
+    "GetDashallDashigDashperiodDashreachLambdaVersionVHV2KO1vZhhTlhI4OP6z6c6OnKKKVGuzINwyzf45c": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashallDashigDashperiodDashreachLambdaFunction"
         },
-        "CodeSha256": "ze3GsVlCdpBqeql+KlyWHbkdwByXdg+bPlbNP0grDQg="
+        "CodeSha256": "o2hV1N861K4/ASmZU9LnDe4/P7pGFCHCOcMzacFyjg0="
       }
     },
     "ApiGatewayRestApi": {
@@ -1223,7 +1223,7 @@
         "GetDashallDashigDashperiodDashreachLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1645964483073": {
+    "ApiGatewayDeployment1645968916227": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1520,7 +1520,7 @@
     "LoadDasheverythingLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "LoadDasheverythingLambdaVersionPd875bvKJAjV8jqve6dTZ6jD0UnOx469UYjO4cH70"
+        "Ref": "LoadDasheverythingLambdaVersionTOzRFVtKFomDsjKOVZ3rkblN7A6Sg14bM4Mz9wbhuE"
       },
       "Export": {
         "Name": "sls-code-jam-dev-LoadDasheverythingLambdaFunctionQualifiedArn"
@@ -1529,7 +1529,7 @@
     "GetDashsentimentLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashsentimentLambdaVersionBdyGfeQQdBvQYe19fPtvKkMyBso2Oq9tazzhFmTM"
+        "Ref": "GetDashsentimentLambdaVersionjuJImQoOsCAsxmCQYlNaEmXahvC8CMhYQ4RXColjU7c"
       },
       "Export": {
         "Name": "sls-code-jam-dev-GetDashsentimentLambdaFunctionQualifiedArn"
@@ -1538,7 +1538,7 @@
     "GetDashpageDashbasicsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashpageDashbasicsLambdaVersionllVSExZSqPAndKoO4dVjtv7gECKEKXKmfiFp1rNg"
+        "Ref": "GetDashpageDashbasicsLambdaVersionLNw1hpRir5OX4w6ndd24r4oPdf5uZHL7p0JGOKCsQ"
       },
       "Export": {
         "Name": "sls-code-jam-dev-GetDashpageDashbasicsLambdaFunctionQualifiedArn"
@@ -1547,7 +1547,7 @@
     "GetDashallDasheventsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashallDasheventsLambdaVersionqDOIj7AZasXnEIpLbYNQUItq17eM8yqdGgbYSMkZE"
+        "Ref": "GetDashallDasheventsLambdaVersion4eKO6HDVxztLmUOuiNKbAcbMkBjgDlHRpMS42BbxJQ"
       },
       "Export": {
         "Name": "sls-code-jam-dev-GetDashallDasheventsLambdaFunctionQualifiedArn"
@@ -1556,7 +1556,7 @@
     "GetDashallDashpostsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashallDashpostsLambdaVersion9M0yi9nx1LGMSPdbsAiHPUa8zPb2wJGgHw2QUCikKY"
+        "Ref": "GetDashallDashpostsLambdaVersionW6V6hngvZe7REoyShEgyqsOManMvg8cqxeRHXdHJdc"
       },
       "Export": {
         "Name": "sls-code-jam-dev-GetDashallDashpostsLambdaFunctionQualifiedArn"
@@ -1565,7 +1565,7 @@
     "GetDashallDashinstagramDashbasicsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashallDashinstagramDashbasicsLambdaVersionzIlvCt4IE8TrHrklpUQ1tJMBpdkSaHCE0iDBh1GVEPo"
+        "Ref": "GetDashallDashinstagramDashbasicsLambdaVersionFMs7n1SyzsNbjY64aIxlLRXhmlbMYGoYLjzLz6SCIQ"
       },
       "Export": {
         "Name": "sls-code-jam-dev-GetDashallDashinstagramDashbasicsLambdaFunctionQualifiedArn"
@@ -1574,7 +1574,7 @@
     "GetDashallDashigDashperiodDashreachLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashallDashigDashperiodDashreachLambdaVersionMIGMTcFnQP26kWJhcgJhXwOh7TNwrE6qVW1cDhm8o"
+        "Ref": "GetDashallDashigDashperiodDashreachLambdaVersionVHV2KO1vZhhTlhI4OP6z6c6OnKKKVGuzINwyzf45c"
       },
       "Export": {
         "Name": "sls-code-jam-dev-GetDashallDashigDashperiodDashreachLambdaFunctionQualifiedArn"
