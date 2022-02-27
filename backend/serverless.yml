@@ -38,3 +38,24 @@ functions:
           path: /sentiment
           method: POST
           cors: true
+  get-page-basics:
+    handler: lambdas/http-get-page-basics.handler
+    events:
+      - http:
+          path: /page-basics
+          method: POST
+          cors: true
+  get-all-events:
+    handler: lambdas/http-get-all-events.handler
+    events:
+      - http:
+          path: /all-events
+          method: POST
+          cors: true
+  get-all-posts:
+    handler: lambdas/http-get-all-posts.handler
+    events:
+      - http:
+          path: /all-posts
+          method: POST
+          cors: true
