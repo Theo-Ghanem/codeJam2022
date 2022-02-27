@@ -7,7 +7,10 @@ const TabOne: FC<{}> = () => {
       <p>
         Here are your instagram stats
       </p>
+      <li> "hello"</li>
+      <li> "here is some info"</li>
     </Fragment>
+    
   );
 };
 export default TabOne;
