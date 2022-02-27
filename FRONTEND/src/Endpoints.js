@@ -3,15 +3,13 @@ import moment from "moment";
 import { backendUrl } from "./Constants";
 const body = {
   pageToken:
-    "EAAG5ntAONcgBAFdAInAr2HRK808C8MZChOHHSnZCG9Q8p2UY89z458nDF5N5ILXEl0eqZAewlE5tDBEasZCBZAbXfjLzoDFXK6URL1qgwZB9IqF9A22ZAFqZB9t5OsyZCZAdvxVKFZB8SSFKVEDY8QoyurBoxceoYpibouTRjjCtnL7hVRwZAWgkAtyCwZA021j6b2JZCcvulEMTZCiHVnkT3ypq1BT",
+    "EAAG5ntAONcgBANkJKASe66UJeD9fDS7EFr7ziHUSRq09iVzg12JH2aDMsZBA52Qa5m7XJnsXPV7Go6T9P7AKq0ZAHg9G6DxHo7BieoZC0tC1GNtm9n1l3VIYq3UYq5kZCYjFd5gVAtlwFw5tZBbPxWxcK2ZBqfIcxhUne2eQrxj1dAgBPhQA7P4kY9dpmW4vrzeZBfJNcgWLpwL8c3UYXix",
   userToken:
-    "EAAG5ntAONcgBAExZCtIXHvYUSuCK6qpv9BKAkXEojACHZCZCGt8uvI3Na853JRZAO5EYI58HgzMZBvyHhYBQE1nZAvfEIrM8hecOsEHMxe2nk4uBeH1pt2Iw9XmEzyfrfy22ZC1D7LK6fe2rBzfr0yRkpmyXqnVaKdh0ptWHZBkksiDg0gXh4jjKln0oaa8qN2ETQtawTbCH8ZCX85EREVQX5",
+    "EAAG5ntAONcgBAC9kmrLgcZBeQeMIyoYLYdpp8kUESVZBIUYZAuNqpmHKMwA2tqCcgkTXNC0ZBOIOifp5DtjkiL0hXKYh8vCHhVHtIKLMYIlBRd9Vn7fGnvI16D4uOpq2h7YZABai3RAU02aqSISZAF1KZC9Vs8FKNZA8RbeQjhi7YIHUeiZChccsleknA5UTO7jvTTIlAPce2jxo0743foQGb",
   instaId: "17841401584624008",
 };
-export const getSentiment = async (input) => {
-  const ret = await axios.post(`${backendUrl}/sentiment`, {
-    message: input,
-  });
+export const getSentiment = async () => {
+  const ret = await axios.post(`${backendUrl}/sentiment`, body);
   console.log(ret);
   return ret.data;
 };
