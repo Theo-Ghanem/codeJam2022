@@ -37,6 +37,11 @@ For the back end:
 ## What's next for Social Mojo
 We would like to add other social media capabilities such as twitter, linkedin, reddit, etc. to be able to give a full view of your company's online presence.
 
+## The team
+- Sehr Moosabhoy
+- Sabrina Mansour
+- Ryan Reszetnik
+- Theo Ghanem
 ***
 ## Video demo link
 https://youtu.be/2ha0mmli_i4
