@@ -32,7 +32,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>See your social statistics!</h1>
+      <h1 style={{ color: "#fff" }}>See your social statistics!</h1>
       <h2>Select a platform to view information:</h2>
       <br />
       <Tabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
