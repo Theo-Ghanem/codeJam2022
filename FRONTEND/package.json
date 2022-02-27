@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "INLINE_RUNTIME_CHUNK=false craco build",
+    "build": "cross-env INLINE_RUNTIME_CHUNK=false craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -51,6 +51,5 @@
     "cross-env": "^7.0.3",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.9.2"
-  },
-  "homepage": ""
+  }
 }
