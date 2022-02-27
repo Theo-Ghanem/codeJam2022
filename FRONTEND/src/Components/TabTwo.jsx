@@ -1,4 +1,5 @@
 import React, { FC, Fragment, PureComponent, useEffect, useState } from "react";
+import moment from "moment";
 import {
   LineChart,
   Line,
@@ -63,7 +64,13 @@ const TabTwo = () => {
   const [posts, setPosts] = useState([{ time: 0, display_time: 0 }]);
   const [pageBasics, setPageBasics] = useState(null);
   const loadEvents = async () => {
-    setEvents(await getEvents());
+    let data = await getEvents();
+    data.forEach(element => {
+      if (element.name.length > 20){
+        element.name = element.name.substring(0, 20) + "..."
+      }
+    });
+    setEvents(data)
   };
   const loadPosts = async () => {
     setPosts(await getPosts());
@@ -78,29 +85,29 @@ const TabTwo = () => {
   }, []);
 
   return (
-    <div style={{ overflow: "auto", height: "300px" }}>
+    <div style={{ overflow: "auto", height: "300px"}}>
       {pageBasics && <h3>{pageBasics.name}</h3>}
-      {pageBasics && <h4>{`${pageBasics.fan_count} Likes`}</h4>}
+      {pageBasics && <h4>{`${pageBasics.fan_count} Total Likes`}</h4>}
 
-      <div style={{ width: "300px", height: "200px" }}>
+      <div style={{ width: "400px", height: "200px" }}>
         <div style={{ textAlign: "center", fontWeight: "600" }}>
-          Most Recent Post
+          Post Impressions Over Time
         </div>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
-            width={300}
+            width={400}
             height={200}
             data={posts}
             margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="time" />
+            <XAxis dataKey="display_time" />
             <YAxis
-              label={{ value: "Impressions", angle: -90, position: "left" }}
+              label={{ value: "    Impressions", position:'inside_left', angle: -90, position: "left" }}
             />
             <Tooltip
               labelFormatter={(t) =>
-                posts.find((d) => d.time === t)?.display_time
+                posts.find((d) => d.display_time === t)?.display_time
               }
             />
             <Legend verticalAlign="top" height={36} />
@@ -113,20 +120,20 @@ const TabTwo = () => {
           </LineChart>
         </ResponsiveContainer>
         <div>
-          <div style={{ textAlign: "center", fontWeight: "600" }}>
+          <div style={{ textAlign: "center", fontWeight: "600", paddingTop: "14px" }}>
             Event Responses
           </div>
           <div>
             <LineChart
-              width={300}
+              width={400}
               height={200}
               data={events}
               margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="time" type="number" domain={["auto", "auto"]} />
+              <XAxis dataKey="time" tickFormatter = {(unixTime) => moment(unixTime).format('Do MMM')} type="number" domain={["auto", "auto"]} />
               <YAxis
-                label={{ value: "My Y Axis", angle: -90, position: "left" }}
+                label={{ value: "    # of People", angle: -90, position: "left" }}
               />
               <Tooltip
                 labelFormatter={(t) => events.find((d) => d.time == t)?.name}
@@ -153,24 +160,28 @@ const TabTwo = () => {
             </LineChart>
           </div>
 
+          <div style={{ textAlign: "center", fontWeight: "600", paddingTop: "14px", paddingBottom: "10px"}}>
+           Impressions Data
+          </div>
+          <div style={{marginLeft: "auto", marginRight: "auto",width:"fit-content"}}>
           {pageBasics && (
-            <table>
-              <tr>
-                <td></td>
-                <td>Day</td>
-                <td>Week</td>
-                <td>Month</td>
+            <table style={{border: "2px solid white", borderCollapse: "collapse", padding: "5px", borderColor: "#FFFFFF", color: "#666666", textAlign: "center", alignSelf: "center"}}>
+              <tr style={{border: "2px solid white", padding: "5px"}}>
+                <td style={{border: "2px solid white", padding: "5px"}}></td>
+                <td style={{border: "2px solid white", padding: "5px"}}>Day</td>
+                <td style={{border: "2px solid white", padding: "5px"}}>Week</td>
+                <td style={{border: "2px solid white", padding: "5px"}}>Month</td>
               </tr>
               <tr>
-                <td>Impressions</td>
-                <td>
+                <td style={{border: "2px solid white", padding: "5px"}}>Impressions</td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
                   {
                     pageBasics.impression_data.find(
                       (d) => d.name === "page_impressions" && d.period === "day"
                     ).value
                   }
                 </td>
-                <td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
                   {
                     pageBasics.impression_data.find(
                       (d) =>
@@ -178,7 +189,7 @@ const TabTwo = () => {
                     ).value
                   }
                 </td>
-                <td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
                   {
                     pageBasics.impression_data.find(
                       (d) =>
@@ -187,9 +198,9 @@ const TabTwo = () => {
                   }
                 </td>
               </tr>
-              <tr>
-                <td>Unique Impressions</td>
-                <td>
+              <tr style={{border: "2px solid white", padding: "5px"}}>
+                <td style={{border: "2px solid white", padding: "5px"}}>Unique Impressions</td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
                   {
                     pageBasics.impression_data.find(
                       (d) =>
@@ -198,7 +209,7 @@ const TabTwo = () => {
                     ).value
                   }
                 </td>
-                <td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
                   {
                     pageBasics.impression_data.find(
                       (d) =>
@@ -207,7 +218,7 @@ const TabTwo = () => {
                     ).value
                   }
                 </td>
-                <td>
+                <td v>
                   {
                     pageBasics.impression_data.find(
                       (d) =>
@@ -217,9 +228,9 @@ const TabTwo = () => {
                   }
                 </td>
               </tr>
-              <tr>
-                <td>Paid Impressions</td>
-                <td>
+              <tr style={{border: "2px solid white", padding: "5px"}}>
+                <td style={{border: "2px solid white", padding: "5px"}}>Paid Impressions</td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
                   {
                     pageBasics.impression_data.find(
                       (d) =>
@@ -227,7 +238,7 @@ const TabTwo = () => {
                     ).value
                   }
                 </td>
-                <td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
                   {
                     pageBasics.impression_data.find(
                       (d) =>
@@ -236,7 +247,7 @@ const TabTwo = () => {
                     ).value
                   }
                 </td>
-                <td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
                   {
                     pageBasics.impression_data.find(
                       (d) =>
@@ -248,6 +259,7 @@ const TabTwo = () => {
               </tr>
             </table>
           )}
+          </div>
         </div>
       </div>
     </div>
