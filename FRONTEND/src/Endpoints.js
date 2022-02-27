@@ -2,11 +2,9 @@ import axios from "axios";
 import moment from "moment";
 import { backendUrl } from "./Constants";
 const body = {
-  pageToken:
-    "EAAG5ntAONcgBAI4HcLMbyDenNyXv02QdyyuvGWIz6wzyw2amHVqO1jI0ZCWM9IQtZA0nPzClKHEYrexckGoTumL6znAwOde98Ib3YoXTTUeeLcg7Kx648G4m0xRnWabAKZCxrunMlqzL2vZBAgYM8uaXxyjaWwGSxlN2n5R7ZCT2rkRlBMpaQIs7dsuGLvTatJQkQtW1mYg3jXuQNOZChF",
-  userToken:
-    "EAAG5ntAONcgBALia4AcON4FrmCtJGMqK4Mmt1sS7gEv8nSKnlIlx6vJW4DgnIU4NSEBMprBjVcMEeSUDrpM2aw39HZBGPCFaWmewLZB9Vl4ArLVI2fBlfNEKQHnPGiSNPXWRS0ZCeOyOixWex2acbLWR5njZBdc9giAZAxPfYAZB06Nwrqas6PpZCbDDOZCufNj5ByepEKydWmoYPsy3io3t",
-  instaId: "17841401584624008",
+  pageToken: process.env.REACT_APP_PAGE_TOKEN,
+  userToken: process.env.REACT_APP_PAGE_TOKEN,
+  instaId: process.env.REACT_APP_IG_ID,
 };
 export const getSentiment = async () => {
   const ret = await axios.post(`${backendUrl}/sentiment`, body);
