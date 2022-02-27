@@ -263,6 +263,6 @@ const TabTwo = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 export default TabTwo;
