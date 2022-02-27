@@ -8,10 +8,8 @@ const body = {
     "EAAG5ntAONcgBAKqQp5kbSAY9s4ZCdgWLmuNTmqp43hoFDGyIQBykpWNR67ljdTKyFyGtHIxgTA0ExMNVGHA0mrJZBC3uZBU6rzAQokM48ZCIse3oQZCV2QvRBU2BOXwYqjOWjbjZAjZBwkShCbF6Yc7HSOKZBQrl3fs4WBHdTBP98ZBxWORyK28hZA0RuS4J7BZA58piH6RdhFqalz5bnmujQvW",
   instaId: "17841401584624008",
 };
-export const getSentiment = async (input) => {
-  const ret = await axios.post(`${backendUrl}/sentiment`, {
-    message: input,
-  });
+export const getSentiment = async () => {
+  const ret = await axios.post(`${backendUrl}/sentiment`, body);
   console.log(ret);
   return ret.data;
 };
