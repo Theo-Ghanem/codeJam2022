@@ -21,12 +21,12 @@ type TabsType = {
 const tabs: TabsType = [
   {
     label: "Instagram",
-    index: 1,
+    index: 2,
     Component: TabOne,
   },
   {
     label: "Facebook",
-    index: 2,
+    index: 1,
     Component: TabTwo,
   },
   {
@@ -36,12 +36,12 @@ const tabs: TabsType = [
   },
   {
     label: "Login",
-    index: 4,
+    index: 5,
     Component: TabFour,
   },
   {
     label: "Definitions",
-    index: 5,
+    index: 4,
     Component: TabFive,
   },
 ];
