@@ -55,28 +55,6 @@ export const getPageBasics = async () => {
   return output;
 };
 
-export const getBasicInsta = async () => {
-  const ret = await axios.post(`${backendUrl}/insta-basics`, body);
-  const basics = ret.data[0].map((i) => {
-    return {
-      username: i.username,
-      profile_pic: i.profile_picture_url,
-      bio: i.biography,
-      numb_posts: i.media_count,
-    };
-  });
-  console.log(ret.data);
-  const dailyData = ret.data[1].map((x) => {
-    return {
-      new_followers: x.follower_count,
-      daily_clicks: x.website_click,
-      daily_profile_views: x.profile_views,
-      daily_direction: x.get_directions_clicks,
-      daily_email_count: x.email_contacts,
-    };
-  });
-  return { basics, dailyData };
-};
 export const getGeneralIG = async () => {
   const ret = (await axios.post(`${backendUrl}/all-instagram-basics`, body))
     .data;
@@ -86,5 +64,18 @@ export const getGeneralIG = async () => {
     biography: ret.generalInfo.biography,
     media_count: ret.generalInfo.media_count,
     id: ret.generalInfo.id,
+    clickArray: ret.parsedClickInfo
+
+
+  };
+};
+
+export const getInstagramReach = async () => {
+  const ret = (await axios.post(`${backendUrl}/ig-period-reach`, body))
+    .data;
+  return {
+    impression_data: ret.impression_data
+
+
   };
 };
