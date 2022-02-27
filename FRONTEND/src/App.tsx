@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./styles.css";
 import Tabs from "./Components/Tabs";
 // Tabs Components
-import TabOne from "./Components/TabOne";
+import TabOne from "./Components/TabOne.jsx";
 import TabTwo from "./Components/TabTwo.jsx";
 import TabThree from "./Components/TabThree";
 import TabFour from "./Components/TabFour";
