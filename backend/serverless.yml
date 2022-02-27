@@ -1,0 +1,33 @@
+service: code-jam
+
+frameworkVersion: "2"
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    DOMAIN_SUFFIX: code-jam
+  lambdaHashingVersion: 20201221
+  profile: serverlessUser
+  stage: dev
+  region: ca-central-1
+  httpApi:
+    cors: true
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+        - lambda:*
+      Resource: "*"
+
+functions:
+  load-everything:
+    handler: lambdas/http-load-all.handler
+    events:
+      - http:
+          path: /
+          method: GET
+          cors: true

@@ -1,0 +1,16 @@
+{
+  "name": "going-out-backend",
+  "version": "1.0.0",
+  "description": "Backend of Going Out",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "serverless deploy && npm run deployAll",
+    "deployAll": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-load-everything --zip-file fileb://deploy.zip"
+  },
+  "author": "Ryan Reszetnik",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0"
+  }
+}
