@@ -1,7 +1,7 @@
 const { default: axios } = require("axios");
 const Responses = require("./API_Responses");
 exports.handler = async (event) => {
-    const token = JSON.parse(event.body).token;
+    const pageToken = JSON.parse(event.body).pageToken;
     let timeReactionComments = (await axios.get(`https://graph.facebook.com/v13.0/618578424896289/posts?fields=comments%2Clikes%2Creactions%2Ccreated_time&access_token=${pageToken}`)).data
     let ids = timeReactionComments.data.map(i=>({id:i.id,created_time:i.created_time}))
     let comments = timeReactionComments.data.filter(k=> k.comments != undefined).map(j=>({comment: j.comments.data[0].message}))
