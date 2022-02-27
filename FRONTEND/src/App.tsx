@@ -6,6 +6,7 @@ import TabOne from "./Components/TabOne";
 import TabTwo from "./Components/TabTwo";
 import TabThree from "./Components/TabThree";
 import TabFour from "./Components/TabFour";
+import TabFive from "./Components/TabFive";
 import axios from "axios";
 import { backendUrl } from "./Constants";
 import { getSentiment } from "./Endpoints";
@@ -38,6 +39,11 @@ const tabs: TabsType = [
     index: 4,
     Component: TabFour,
   },
+  {
+    label: "Definitions",
+    index: 5,
+    Component: TabFive,
+  },
 ];
 
 export default function App() {
@@ -45,7 +51,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>See your social statistics!</h1>
+      <h1 style={{ color: "#fff" }}>See your social statistics!</h1>
       <h2>Select a platform to view information:</h2>
       <br />
       <Tabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
