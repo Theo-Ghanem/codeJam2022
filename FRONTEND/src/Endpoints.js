@@ -56,6 +56,8 @@ export const getPageBasics = async () => {
 export const getGeneralIG = async () => {
   const ret = (await axios.post(`${backendUrl}/all-instagram-basics`, body))
     .data;
+    console.log(ret);
+
   return {
     username: ret.generalInfo.username,
     photo: ret.generalInfo.profile_picture_url,

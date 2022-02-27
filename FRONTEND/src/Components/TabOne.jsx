@@ -21,7 +21,7 @@ const TabOne = () => {
     setUsername(username);
     setNumPosts(media_count);
     setImgSrc(photo);
-    setInfo(clickInfo);
+    setInfo(clickArray);
   };
   const loadPosts = async () => {
     //   setPosts(await getPosts());
@@ -93,9 +93,7 @@ const TabOne = () => {
       >
         Daily Insights
       </div>
-
       <div style={{marginLeft: "auto", marginRight: "auto",width:"fit-content"}}>
-
           {clickInfo && (
             <table style={{ borderCollapse: "collapse", padding: "5px", borderColor: "#FFFFFF", color: "#666666", textAlign: "center", alignSelf: "center"}}>
 
@@ -154,7 +152,7 @@ const TabOne = () => {
                 </td>
               </tr>
             </table>
-          )};
+          )}
           </div>      
       <div
         style={{
