@@ -1,16 +1,16 @@
 const { default: axios } = require("axios");
-const endpoint = "https://d39f-35-231-62-233.ngrok.io";
+const endpoint = "https://b8f8-34-83-84-157.ngrok.io";
 const Responses = {
   async getPhraseValue(phrase) {
     return (await axios.post(`${endpoint}/predict?data=${encodeURI(phrase)}`))
       .data.data;
   },
   async getAllPhraseValues(phrases) {
-    return (
+    return JSON.parse((
       await axios.post(
-        `${endpoint}/predictAll?data=${encodeURI(JSON.stringify(phrases))}`
+        `${endpoint}/predictAll?data=${JSON.stringify(phrases)}`
       )
-    ).data.data;
+    ).data.data);
   },
 };
 

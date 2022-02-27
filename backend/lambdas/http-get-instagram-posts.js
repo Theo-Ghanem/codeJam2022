@@ -13,10 +13,9 @@ exports.handler = async (event) => {
     let comments = posts.filter(k=> k.data.data.length != 0).map(j=>(j.data.data[0].text))
     const values = await Tensorflow.getAllPhraseValues(comments)
     let sum = 0
-    values.forEach(value => { sum += value-0.7
-    });
-    let average = sum / values.length * 100
-
+    values.forEach(value => {
+        sum += parseFloat(value)});
+    let average = sum / values.length * 50+50
     let resp = {average}
-    return Responses._200(resp);
+    console.log(resp)
   };

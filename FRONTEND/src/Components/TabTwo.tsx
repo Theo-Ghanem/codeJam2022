@@ -8,111 +8,124 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  Area,
+  AreaChart,
 } from "recharts";
-import { getEvents } from "../Endpoints";
+import { getEvents, getPosts } from "../Endpoints";
 const data = [
   {
     name: "Page A",
-    going: 4000,
-    interested: 2400,
-    "no reply": 2400,
-    time: 2400,
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
   },
   {
     name: "Page B",
-    going: 3000,
-    interested: 1398,
-    "no reply": 3000,
-    time: 2210,
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
   },
   {
     name: "Page C",
-    going: 2000,
-    interested: 9800,
-    "no reply": 8300,
-    time: 2290,
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
   },
   {
     name: "Page D",
-    going: 3000,
-    interested: 1398,
-    "no reply": 3000,
-    time: 2000,
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
   },
   {
     name: "Page E",
-    going: 2000,
-    interested: 9800,
-    "no reply": 8300,
-    time: 2181,
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: "Page F",
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: "Page G",
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
   },
 ];
-const recent_post_data = {
-  likes: 500,
-  comments: 20,
-  shares: 40,
-  impressions: 600,
-  impression_data: [
-    {
-      name: "",
-      time: "",
-      impressions: "",
-    },
-  ],
-};
 
 const TabTwo: FC<{}> = () => {
   const [pageName, setPageName] = useState("ECSESS Page");
   const [events, setEvents] = useState(data);
+  const [posts, setPosts] = useState([{ time: 0, display_time: 0 }]);
   const loadEvents = async () => {
     setEvents(await getEvents());
   };
+  const loadPosts = async () => {
+    setPosts(await getPosts());
+  };
   useEffect(() => {
     loadEvents();
+    loadPosts();
   }, []);
 
   return (
     <div style={{ overflow: "auto", height: "300px" }}>
-      <h3>{pageName}</h3>
-
-      <div style={{ width: "400px", height: "300px" }}>
-        <div style={{ textAlign: "center", fontWeight: "600" }}>Events</div>
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart
-            width={300}
-            height={200}
-            data={events}
-            margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="time" type="number" domain={["auto", "auto"]} />
-            <YAxis
-              label={{ value: "My Y Axis", angle: -90, position: "left" }}
-            />
-            <Tooltip
-              labelFormatter={(t) => events.find((d) => d.time == t)?.name}
-            />
-            <Legend verticalAlign="top" height={36} />
-            <Line
-              type="monotone"
-              dataKey="going"
-              stroke="#8884d8"
-              activeDot={{ r: 8 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="interested"
-              stroke="#386037"
-              activeDot={{ r: 8 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="no reply"
-              stroke="#573950"
-              activeDot={{ r: 8 }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+      <h3>Facebook</h3>
+      <div>
+        <LineChart
+          width={300}
+          height={200}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="pv"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
+          />
+          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        </LineChart>
+      </div>
+      <div>
+        <LineChart
+          width={300}
+          height={200}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="pv"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
+          />
+          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        </LineChart>
       </div>
       <div style={{ width: "300px", height: "200px", paddingTop: "50px" }}>
         <div style={{ textAlign: "center", fontWeight: "600" }}>
@@ -122,34 +135,24 @@ const TabTwo: FC<{}> = () => {
           <LineChart
             width={300}
             height={200}
-            data={events}
+            data={posts}
             margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="time" />
             <YAxis
-              label={{ value: "My Y Axis", angle: -90, position: "left" }}
+              label={{ value: "Impressions", angle: -90, position: "left" }}
             />
             <Tooltip
-              labelFormatter={(t) => data.find((d) => d.time === t)?.name}
+              labelFormatter={(t) =>
+                posts.find((d: any) => d.time === t)?.display_time
+              }
             />
             <Legend verticalAlign="top" height={36} />
             <Line
               type="monotone"
-              dataKey="going"
+              dataKey="impressions"
               stroke="#8884d8"
-              activeDot={{ r: 8 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="interested"
-              stroke="#386037"
-              activeDot={{ r: 8 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="no reply"
-              stroke="#573950"
               activeDot={{ r: 8 }}
             />
           </LineChart>
