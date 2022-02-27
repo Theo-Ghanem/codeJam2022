@@ -7,7 +7,6 @@ import TabTwo from "./Components/TabTwo";
 import axios from "axios";
 import { backendUrl } from "./Constants";
 import { getSentiment } from "./Endpoints";
-import FacebookLogin from "react-facebook-login";
 type TabsType = {
   label: string;
   index: number;
