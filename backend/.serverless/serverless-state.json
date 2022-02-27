@@ -131,6 +131,18 @@
               "LogGroupName": "/aws/lambda/code-jam-dev-get-all-posts"
             }
           },
+          "GetDashallDashinstagramDashbasicsLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/code-jam-dev-get-all-instagram-basics"
+            }
+          },
+          "GetDashallDashigDashperiodDashreachLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/code-jam-dev-get-all-ig-period-reach"
+            }
+          },
           "IamRoleLambdaExecution": {
             "Type": "AWS::IAM::Role",
             "Properties": {
@@ -218,7 +230,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/code-jam/dev/1645947541864-2022-02-27T07:39:01.864Z/code-jam.zip"
+                "S3Key": "serverless/code-jam/dev/1645953017377-2022-02-27T09:10:17.377Z/code-jam.zip"
               },
               "Handler": "lambdas/http-load-all.handler",
               "Runtime": "nodejs12.x",
@@ -248,7 +260,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/code-jam/dev/1645947541864-2022-02-27T07:39:01.864Z/code-jam.zip"
+                "S3Key": "serverless/code-jam/dev/1645953017377-2022-02-27T09:10:17.377Z/code-jam.zip"
               },
               "Handler": "lambdas/http-get-sentiment.handler",
               "Runtime": "nodejs12.x",
@@ -278,7 +290,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/code-jam/dev/1645947541864-2022-02-27T07:39:01.864Z/code-jam.zip"
+                "S3Key": "serverless/code-jam/dev/1645953017377-2022-02-27T09:10:17.377Z/code-jam.zip"
               },
               "Handler": "lambdas/http-get-page-basics.handler",
               "Runtime": "nodejs12.x",
@@ -308,7 +320,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/code-jam/dev/1645947541864-2022-02-27T07:39:01.864Z/code-jam.zip"
+                "S3Key": "serverless/code-jam/dev/1645953017377-2022-02-27T09:10:17.377Z/code-jam.zip"
               },
               "Handler": "lambdas/http-get-all-events.handler",
               "Runtime": "nodejs12.x",
@@ -338,7 +350,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/code-jam/dev/1645947541864-2022-02-27T07:39:01.864Z/code-jam.zip"
+                "S3Key": "serverless/code-jam/dev/1645953017377-2022-02-27T09:10:17.377Z/code-jam.zip"
               },
               "Handler": "lambdas/http-get-all-posts.handler",
               "Runtime": "nodejs12.x",
@@ -361,54 +373,134 @@
               "GetDashallDashpostsLogGroup"
             ]
           },
-          "LoadDasheverythingLambdaVersionMwrpKy5Uly5pVBZmr3n221exsqBbALI6BjtBqVUCc": {
+          "GetDashallDashinstagramDashbasicsLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/code-jam/dev/1645953017377-2022-02-27T09:10:17.377Z/code-jam.zip"
+              },
+              "Handler": "lambdas/http-get-all-instagram-basics.handler",
+              "Runtime": "nodejs12.x",
+              "FunctionName": "code-jam-dev-get-all-instagram-basics",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "DOMAIN_SUFFIX": "code-jam"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "GetDashallDashinstagramDashbasicsLogGroup"
+            ]
+          },
+          "GetDashallDashigDashperiodDashreachLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/code-jam/dev/1645953017377-2022-02-27T09:10:17.377Z/code-jam.zip"
+              },
+              "Handler": "lambdas/http-get-ig-period-reach.handler",
+              "Runtime": "nodejs12.x",
+              "FunctionName": "code-jam-dev-get-all-ig-period-reach",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "DOMAIN_SUFFIX": "code-jam"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "GetDashallDashigDashperiodDashreachLogGroup"
+            ]
+          },
+          "LoadDasheverythingLambdaVersionD4kTkNwBH6hbLqOu6m56010515p86ONFJAwBRhF8frs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "LoadDasheverythingLambdaFunction"
               },
-              "CodeSha256": "WdsWPa15jUrbpk67ickru5nM0qWsup0tcY1HrbsVzEc="
+              "CodeSha256": "4cmZA85aS4M/1b0IJXU94XyJufI5u3bS1bmj2yZoIPg="
             }
           },
-          "GetDashsentimentLambdaVersionxyeeb6SkZOWV0tk4yeSwLlNpMj6GO5BkXHBFTOJg": {
+          "GetDashsentimentLambdaVersionu76Gy2vLp4QUtb9b6B2XK8CWtbk4Dr5NBVaMRYeR8g": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashsentimentLambdaFunction"
               },
-              "CodeSha256": "WdsWPa15jUrbpk67ickru5nM0qWsup0tcY1HrbsVzEc="
+              "CodeSha256": "4cmZA85aS4M/1b0IJXU94XyJufI5u3bS1bmj2yZoIPg="
             }
           },
-          "GetDashpageDashbasicsLambdaVersionNP5Iq6Wps02zztnsTumqBAa3exj0nsfRsxpu0qaDls": {
+          "GetDashpageDashbasicsLambdaVersionRq6wFbMxrB6a7YT0pOPkhvzcHTcD6iRirJb1QQcc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashpageDashbasicsLambdaFunction"
               },
-              "CodeSha256": "WdsWPa15jUrbpk67ickru5nM0qWsup0tcY1HrbsVzEc="
+              "CodeSha256": "4cmZA85aS4M/1b0IJXU94XyJufI5u3bS1bmj2yZoIPg="
             }
           },
-          "GetDashallDasheventsLambdaVersionQ1eFrJHO595gz7xq2wNCv4JK2HTgwsVXCe2ODSlk5Zw": {
+          "GetDashallDasheventsLambdaVersionuXtaHiNHPubqAqn9slMyVGwl1fa2kXJKOjsW8cDck": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashallDasheventsLambdaFunction"
               },
-              "CodeSha256": "WdsWPa15jUrbpk67ickru5nM0qWsup0tcY1HrbsVzEc="
+              "CodeSha256": "4cmZA85aS4M/1b0IJXU94XyJufI5u3bS1bmj2yZoIPg="
             }
           },
-          "GetDashallDashpostsLambdaVersionQ4ooqJfPW4fmWsTor4ZKRZllDyNK9hWjcGXOY34Y": {
+          "GetDashallDashpostsLambdaVersionUj8F10wVRrIEY5KjpwioEtMuuAlJkH1QjKN7cmGU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashallDashpostsLambdaFunction"
               },
-              "CodeSha256": "WdsWPa15jUrbpk67ickru5nM0qWsup0tcY1HrbsVzEc="
+              "CodeSha256": "4cmZA85aS4M/1b0IJXU94XyJufI5u3bS1bmj2yZoIPg="
+            }
+          },
+          "GetDashallDashinstagramDashbasicsLambdaVersionm7pFecQrLlP7geTK5YclKPmaqwhjfR6ZxAPQoZXHH4": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "GetDashallDashinstagramDashbasicsLambdaFunction"
+              },
+              "CodeSha256": "4cmZA85aS4M/1b0IJXU94XyJufI5u3bS1bmj2yZoIPg="
+            }
+          },
+          "GetDashallDashigDashperiodDashreachLambdaVersionmau6g2ipB638kd9zKR6ZzxUKUee0COUSFC2XGQQVU": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "GetDashallDashigDashperiodDashreachLambdaFunction"
+              },
+              "CodeSha256": "4cmZA85aS4M/1b0IJXU94XyJufI5u3bS1bmj2yZoIPg="
             }
           },
           "ApiGatewayRestApi": {
@@ -478,6 +570,36 @@
                 ]
               },
               "PathPart": "all-posts",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceAllDashinstagramDashbasics": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "all-instagram-basics",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceIgDashperiodDashreach": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "ig-period-reach",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -705,6 +827,96 @@
               },
               "ResourceId": {
                 "Ref": "ApiGatewayResourceAllDashposts"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodAllDashinstagramDashbasicsOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceAllDashinstagramDashbasics"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodIgDashperiodDashreachOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceIgDashperiodDashreach"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -944,7 +1156,99 @@
               "GetDashallDashpostsLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1645947539981": {
+          "ApiGatewayMethodAllDashinstagramDashbasicsPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceAllDashinstagramDashbasics"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "GetDashallDashinstagramDashbasicsLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "GetDashallDashinstagramDashbasicsLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayMethodIgDashperiodDashreachPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceIgDashperiodDashreach"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "GetDashallDashigDashperiodDashreachLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "GetDashallDashigDashperiodDashreachLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayDeployment1645953015981": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -958,11 +1262,15 @@
               "ApiGatewayMethodPageDashbasicsOptions",
               "ApiGatewayMethodAllDasheventsOptions",
               "ApiGatewayMethodAllDashpostsOptions",
+              "ApiGatewayMethodAllDashinstagramDashbasicsOptions",
+              "ApiGatewayMethodIgDashperiodDashreachOptions",
               "ApiGatewayMethodGet",
               "ApiGatewayMethodSentimentPost",
               "ApiGatewayMethodPageDashbasicsPost",
               "ApiGatewayMethodAllDasheventsPost",
-              "ApiGatewayMethodAllDashpostsPost"
+              "ApiGatewayMethodAllDashpostsPost",
+              "ApiGatewayMethodAllDashinstagramDashbasicsPost",
+              "ApiGatewayMethodIgDashperiodDashreachPost"
             ]
           },
           "LoadDasheverythingLambdaPermissionApiGateway": {
@@ -1149,6 +1457,80 @@
                 ]
               }
             }
+          },
+          "GetDashallDashinstagramDashbasicsLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "GetDashallDashinstagramDashbasicsLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "GetDashallDashigDashperiodDashreachLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "GetDashallDashigDashperiodDashreachLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
           }
         },
         "Outputs": {
@@ -1163,7 +1545,7 @@
           "LoadDasheverythingLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "LoadDasheverythingLambdaVersionMwrpKy5Uly5pVBZmr3n221exsqBbALI6BjtBqVUCc"
+              "Ref": "LoadDasheverythingLambdaVersionD4kTkNwBH6hbLqOu6m56010515p86ONFJAwBRhF8frs"
             },
             "Export": {
               "Name": "sls-code-jam-dev-LoadDasheverythingLambdaFunctionQualifiedArn"
@@ -1172,7 +1554,7 @@
           "GetDashsentimentLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashsentimentLambdaVersionxyeeb6SkZOWV0tk4yeSwLlNpMj6GO5BkXHBFTOJg"
+              "Ref": "GetDashsentimentLambdaVersionu76Gy2vLp4QUtb9b6B2XK8CWtbk4Dr5NBVaMRYeR8g"
             },
             "Export": {
               "Name": "sls-code-jam-dev-GetDashsentimentLambdaFunctionQualifiedArn"
@@ -1181,7 +1563,7 @@
           "GetDashpageDashbasicsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashpageDashbasicsLambdaVersionNP5Iq6Wps02zztnsTumqBAa3exj0nsfRsxpu0qaDls"
+              "Ref": "GetDashpageDashbasicsLambdaVersionRq6wFbMxrB6a7YT0pOPkhvzcHTcD6iRirJb1QQcc"
             },
             "Export": {
               "Name": "sls-code-jam-dev-GetDashpageDashbasicsLambdaFunctionQualifiedArn"
@@ -1190,7 +1572,7 @@
           "GetDashallDasheventsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashallDasheventsLambdaVersionQ1eFrJHO595gz7xq2wNCv4JK2HTgwsVXCe2ODSlk5Zw"
+              "Ref": "GetDashallDasheventsLambdaVersionuXtaHiNHPubqAqn9slMyVGwl1fa2kXJKOjsW8cDck"
             },
             "Export": {
               "Name": "sls-code-jam-dev-GetDashallDasheventsLambdaFunctionQualifiedArn"
@@ -1199,10 +1581,28 @@
           "GetDashallDashpostsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashallDashpostsLambdaVersionQ4ooqJfPW4fmWsTor4ZKRZllDyNK9hWjcGXOY34Y"
+              "Ref": "GetDashallDashpostsLambdaVersionUj8F10wVRrIEY5KjpwioEtMuuAlJkH1QjKN7cmGU"
             },
             "Export": {
               "Name": "sls-code-jam-dev-GetDashallDashpostsLambdaFunctionQualifiedArn"
+            }
+          },
+          "GetDashallDashinstagramDashbasicsLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "GetDashallDashinstagramDashbasicsLambdaVersionm7pFecQrLlP7geTK5YclKPmaqwhjfR6ZxAPQoZXHH4"
+            },
+            "Export": {
+              "Name": "sls-code-jam-dev-GetDashallDashinstagramDashbasicsLambdaFunctionQualifiedArn"
+            }
+          },
+          "GetDashallDashigDashperiodDashreachLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "GetDashallDashigDashperiodDashreachLambdaVersionmau6g2ipB638kd9zKR6ZzxUKUee0COUSFC2XGQQVU"
+            },
+            "Export": {
+              "Name": "sls-code-jam-dev-GetDashallDashigDashperiodDashreachLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -1355,7 +1755,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "LoadDasheverythingLambdaVersionMwrpKy5Uly5pVBZmr3n221exsqBbALI6BjtBqVUCc"
+        "versionLogicalId": "LoadDasheverythingLambdaVersionD4kTkNwBH6hbLqOu6m56010515p86ONFJAwBRhF8frs"
       },
       "get-sentiment": {
         "handler": "lambdas/http-get-sentiment.handler",
@@ -1390,7 +1790,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetDashsentimentLambdaVersionxyeeb6SkZOWV0tk4yeSwLlNpMj6GO5BkXHBFTOJg"
+        "versionLogicalId": "GetDashsentimentLambdaVersionu76Gy2vLp4QUtb9b6B2XK8CWtbk4Dr5NBVaMRYeR8g"
       },
       "get-page-basics": {
         "handler": "lambdas/http-get-page-basics.handler",
@@ -1425,7 +1825,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetDashpageDashbasicsLambdaVersionNP5Iq6Wps02zztnsTumqBAa3exj0nsfRsxpu0qaDls"
+        "versionLogicalId": "GetDashpageDashbasicsLambdaVersionRq6wFbMxrB6a7YT0pOPkhvzcHTcD6iRirJb1QQcc"
       },
       "get-all-events": {
         "handler": "lambdas/http-get-all-events.handler",
@@ -1460,7 +1860,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetDashallDasheventsLambdaVersionQ1eFrJHO595gz7xq2wNCv4JK2HTgwsVXCe2ODSlk5Zw"
+        "versionLogicalId": "GetDashallDasheventsLambdaVersionuXtaHiNHPubqAqn9slMyVGwl1fa2kXJKOjsW8cDck"
       },
       "get-all-posts": {
         "handler": "lambdas/http-get-all-posts.handler",
@@ -1495,7 +1895,77 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetDashallDashpostsLambdaVersionQ4ooqJfPW4fmWsTor4ZKRZllDyNK9hWjcGXOY34Y"
+        "versionLogicalId": "GetDashallDashpostsLambdaVersionUj8F10wVRrIEY5KjpwioEtMuuAlJkH1QjKN7cmGU"
+      },
+      "get-all-instagram-basics": {
+        "handler": "lambdas/http-get-all-instagram-basics.handler",
+        "events": [
+          {
+            "http": {
+              "path": "all-instagram-basics",
+              "method": "post",
+              "cors": {
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "code-jam-dev-get-all-instagram-basics",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "GetDashallDashinstagramDashbasicsLambdaVersionm7pFecQrLlP7geTK5YclKPmaqwhjfR6ZxAPQoZXHH4"
+      },
+      "get-all-ig-period-reach": {
+        "handler": "lambdas/http-get-ig-period-reach.handler",
+        "events": [
+          {
+            "http": {
+              "path": "ig-period-reach",
+              "method": "post",
+              "cors": {
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "code-jam-dev-get-all-ig-period-reach",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "GetDashallDashigDashperiodDashreachLambdaVersionmau6g2ipB638kd9zKR6ZzxUKUee0COUSFC2XGQQVU"
       }
     },
     "configValidationMode": "warn",
@@ -1520,7 +1990,7 @@
     "artifact": "/Users/rreszetnik/Desktop/codeJam2022-v2/backend/.serverless/code-jam.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/code-jam/dev/1645947541864-2022-02-27T07:39:01.864Z",
+    "artifactDirectoryName": "serverless/code-jam/dev/1645953017377-2022-02-27T09:10:17.377Z",
     "artifact": "code-jam.zip"
   }
 }
