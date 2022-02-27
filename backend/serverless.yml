@@ -60,7 +60,7 @@ functions:
           method: POST
           cors: true
   get-all-instagram-basics:
-    handler: lambdas/http-get-all-instagram-basics.handler
+    handler: lambdas/http-get-instagram-basics.handler
     events:
       - http:
           path: /all-instagram-basics

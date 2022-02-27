@@ -6,6 +6,7 @@ const body = {
     "EAAG5ntAONcgBAFdAInAr2HRK808C8MZChOHHSnZCG9Q8p2UY89z458nDF5N5ILXEl0eqZAewlE5tDBEasZCBZAbXfjLzoDFXK6URL1qgwZB9IqF9A22ZAFqZB9t5OsyZCZAdvxVKFZB8SSFKVEDY8QoyurBoxceoYpibouTRjjCtnL7hVRwZAWgkAtyCwZA021j6b2JZCcvulEMTZCiHVnkT3ypq1BT",
   userToken:
     "EAAG5ntAONcgBAExZCtIXHvYUSuCK6qpv9BKAkXEojACHZCZCGt8uvI3Na853JRZAO5EYI58HgzMZBvyHhYBQE1nZAvfEIrM8hecOsEHMxe2nk4uBeH1pt2Iw9XmEzyfrfy22ZC1D7LK6fe2rBzfr0yRkpmyXqnVaKdh0ptWHZBkksiDg0gXh4jjKln0oaa8qN2ETQtawTbCH8ZCX85EREVQX5",
+  instaId: "17841401584624008",
 };
 export const getSentiment = async (input) => {
   const ret = await axios.post(`${backendUrl}/sentiment`, {
@@ -45,29 +46,47 @@ export const getPosts = async () => {
   console.log(ret.data);
   return posts;
 };
+export const getPageBasics = async () => {
+  const ret = await axios.post(`${backendUrl}/page-basics`, body);
+  console.log(ret);
+  const output = {
+    ...ret.data.nameLikes,
+    impression_data: ret.data.impression_data,
+  };
+  console.log(output);
+  return output;
+};
 
-export const getBasicInsta = async () => { 
-  const ret = await axios.post('${backendUrl}/insta-basics',body); 
-  const basics = ret.data[0]
-    .map((i) => {
-      return {
-        username: i.username,
-        profile_pic : i.profile_picture_url,
-        bio : i.biography,
-        numb_posts : i.media_count,
-      }
-    })
+export const getBasicInsta = async () => {
+  const ret = await axios.post(`${backendUrl}/insta-basics`, body);
+  const basics = ret.data[0].map((i) => {
+    return {
+      username: i.username,
+      profile_pic: i.profile_picture_url,
+      bio: i.biography,
+      numb_posts: i.media_count,
+    };
+  });
   console.log(ret.data);
-  const dailyData = ret.data[1]
-    .map((x)=> { 
-      return { 
-        new_followers : x.follower_count,
-        daily_clicks : x.website_click,
-        daily_profile_views : x.profile_views,
-        daily_direction : x.get_directions_clicks,
-        daily_email_count : x.email_contacts,
-      }
-    })
-  return {basics, dailyData};
-
+  const dailyData = ret.data[1].map((x) => {
+    return {
+      new_followers: x.follower_count,
+      daily_clicks: x.website_click,
+      daily_profile_views: x.profile_views,
+      daily_direction: x.get_directions_clicks,
+      daily_email_count: x.email_contacts,
+    };
+  });
+  return { basics, dailyData };
+};
+export const getGeneralIG = async () => {
+  const ret = (await axios.post(`${backendUrl}/all-instagram-basics`, body))
+    .data;
+  return {
+    username: ret.generalInfo.username,
+    photo: ret.generalInfo.profile_picture_url,
+    biography: ret.generalInfo.biography,
+    media_count: ret.generalInfo.media_count,
+    id: ret.generalInfo.id,
+  };
 };
