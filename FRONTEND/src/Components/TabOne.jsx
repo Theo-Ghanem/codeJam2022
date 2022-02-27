@@ -21,7 +21,7 @@ const TabOne= () => {
     setUsername(username);
     setNumPosts(media_count);
     setImgSrc(photo);
-    setInfo(info);
+    setInfo(clickInfo);
   };
   const loadPosts = async () => {
     //   setPosts(await getPosts());
@@ -42,12 +42,14 @@ const TabOne= () => {
         <div>Number of Posts:{numPosts}</div>
         <img src={imgSrc} width={50} height={50} />
       </div>
+      <div style={{ textAlign: "center", fontWeight: "600", paddingTop: "14px", paddingBottom: "10px"}}>
+           Impressions Data
+          </div>
       <div style={{marginLeft: "auto", marginRight: "auto",width:"fit-content"}}>
           {impressionData && (
             <table style={{border: "2px solid white", borderCollapse: "collapse", padding: "5px", borderColor: "#FFFFFF", color: "#666666", textAlign: "center", alignSelf: "center"}}>
               <tr style={{border: "2px solid white", padding: "5px"}}>
                 <td style={{border: "2px solid white", padding: "5px"}}></td>
-                <td style={{border: "2px solid white", padding: "5px"}}>Day</td>
                 <td style={{border: "2px solid white", padding: "5px"}}>Week</td>
                 <td style={{border: "2px solid white", padding: "5px"}}>Month</td>
               </tr>
@@ -56,81 +58,35 @@ const TabOne= () => {
                 <td style={{border: "2px solid white", padding: "5px"}}>
                   {
                     impressionData.find(
-                      (d) => d.name === "reach" && d.period === "week"
+                      (d) => d.name === "impressions" && d.period === "week"
                     ).value
                   }
                 </td>
                 <td style={{border: "2px solid white", padding: "5px"}}>
                   {
-                    pageBasics.impression_data.find(
+                    impressionData.find(
                       (d) =>
-                        d.name === "page_impressions" && d.period === "week"
-                    ).value
-                  }
-                </td>
-                <td style={{border: "2px solid white", padding: "5px"}}>
-                  {
-                    pageBasics.impression_data.find(
-                      (d) =>
-                        d.name === "page_impressions" && d.period === "days_28"
+                        d.name === "impressions" && d.period === "days_28"
                     ).value
                   }
                 </td>
               </tr>
               <tr style={{border: "2px solid white", padding: "5px"}}>
-                <td style={{border: "2px solid white", padding: "5px"}}>Unique Impressions</td>
+                <td style={{border: "2px solid white", padding: "5px"}}>Reach</td>
                 <td style={{border: "2px solid white", padding: "5px"}}>
                   {
-                    pageBasics.impression_data.find(
+                    impressionData.find(
                       (d) =>
-                        d.name === "page_impressions_unique" &&
-                        d.period === "day"
-                    ).value
-                  }
-                </td>
-                <td style={{border: "2px solid white", padding: "5px"}}>
-                  {
-                    pageBasics.impression_data.find(
-                      (d) =>
-                        d.name === "page_impressions_unique" &&
+                        d.name === "reach" &&
                         d.period === "week"
                     ).value
                   }
                 </td>
                 <td v>
                   {
-                    pageBasics.impression_data.find(
+                    impressionData.find(
                       (d) =>
-                        d.name === "page_impressions_unique" &&
-                        d.period === "days_28"
-                    ).value
-                  }
-                </td>
-              </tr>
-              <tr style={{border: "2px solid white", padding: "5px"}}>
-                <td style={{border: "2px solid white", padding: "5px"}}>Paid Impressions</td>
-                <td style={{border: "2px solid white", padding: "5px"}}>
-                  {
-                    pageBasics.impression_data.find(
-                      (d) =>
-                        d.name === "page_impressions_paid" && d.period === "day"
-                    ).value
-                  }
-                </td>
-                <td style={{border: "2px solid white", padding: "5px"}}>
-                  {
-                    pageBasics.impression_data.find(
-                      (d) =>
-                        d.name === "page_impressions_paid" &&
-                        d.period === "week"
-                    ).value
-                  }
-                </td>
-                <td style={{border: "2px solid white", padding: "5px"}}>
-                  {
-                    pageBasics.impression_data.find(
-                      (d) =>
-                        d.name === "page_impressions_paid" &&
+                        d.name === "reach" &&
                         d.period === "days_28"
                     ).value
                   }

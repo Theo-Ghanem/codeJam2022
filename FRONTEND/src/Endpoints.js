@@ -3,9 +3,9 @@ import moment from "moment";
 import { backendUrl } from "./Constants";
 const body = {
   pageToken:
-    "EAAG5ntAONcgBADG2Gz2qMV24VorbAz85ZAJq8Q7ZAcwmTj9qR9hEUNsoGIvV1IgEpZBGkjIedV3GdFsVXdRn5ApZAZCCujXbjhZBJ0AXn6ZAdw0GHhyLaOiOMX2D6DmbcIiSeJD3zl3UzsY4rF5NMP2DeGpn24Ar7fT3OTkcYNtdgmuHivOfaGmzU7Dm355Uvuf5MG7dsFRD9nZAI8ElobcE",
+    "EAAG5ntAONcgBAEBA5tvqV4CZBEWY6ZBRq3rPaLTCI1CDRKfOOc1Vr8YHzI852ArmtQX6OWzE9dzNC3Qn8VPhKeRFGRoCO6LWDiKF70FxRrb4AiX1HdepuD99QVJ9DmAbKuAiVqtnnoEOlDMdbvHYdapHvpwhH040RYMd7X4WP6SVt4ZBLUVZC8DLBO1yrtZASZBMlpQlTGrBuLBZCxvkWWd",
   userToken:
-    "EAAG5ntAONcgBAKqQp5kbSAY9s4ZCdgWLmuNTmqp43hoFDGyIQBykpWNR67ljdTKyFyGtHIxgTA0ExMNVGHA0mrJZBC3uZBU6rzAQokM48ZCIse3oQZCV2QvRBU2BOXwYqjOWjbjZAjZBwkShCbF6Yc7HSOKZBQrl3fs4WBHdTBP98ZBxWORyK28hZA0RuS4J7BZA58piH6RdhFqalz5bnmujQvW",
+    "EAAG5ntAONcgBANb5JFbpgKnjuDPHyUZBZAjzetE8yy4jiZBpnIc6VzZB1eMz20j0bqFDAlD0TJJCQ5Gb6gCZAZCbQr2UTVfYjk1EUBRMHeIzahdSjqU7QUindU6ZBeh3PBQyrew0Y1bu6COP5LiOLAxbZCyDyIcmI8khHgxDuXLg2rXb23pUVZAWbaKmSvPxtG6PJ73VZBpsSaiqRsNqcQsZAut",
   instaId: "17841401584624008",
 };
 export const getSentiment = async () => {
@@ -73,9 +73,6 @@ export const getGeneralIG = async () => {
 export const getInstagramReach = async () => {
   const ret = (await axios.post(`${backendUrl}/ig-period-reach`, body))
     .data;
-  return {
-    impression_data: ret.impression_data
-
-
-  };
+    console.log(ret)
+  return ret.impression_data;
 };
