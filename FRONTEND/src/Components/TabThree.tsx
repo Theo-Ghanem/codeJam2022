@@ -42,7 +42,7 @@ const TabThree: FC<{}> = () => {
                   fill: "#fff",
                 },
               ]}
-              isAnimationActive={false}
+              isAnimationActive={true}
               dataKey="value"
               nameKey="name"
               cx="50%"
@@ -78,7 +78,7 @@ const TabThree: FC<{}> = () => {
                   fill: "#fff",
                 },
               ]}
-              isAnimationActive={false}
+              isAnimationActive={true}
               dataKey="value"
               nameKey="name"
               cx="50%"

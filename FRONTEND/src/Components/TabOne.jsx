@@ -161,7 +161,6 @@ const TabOne = () => {
             </tr>
           </table>
         )}
-        ;
       </div>
     </Fragment>
   );
