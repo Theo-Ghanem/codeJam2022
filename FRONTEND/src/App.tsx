@@ -4,12 +4,15 @@ import Tabs from "./Components/Tabs";
 // Tabs Components
 import TabOne from "./Components/TabOne";
 import TabTwo from "./Components/TabTwo";
+import TabThree from "./Components/TabThree";
+import TabFour from "./Components/TabFour";
 import axios from "axios";
 import { backendUrl } from "./Constants";
 import { getSentiment } from "./Endpoints";
 type TabsType = {
   label: string;
   index: number;
+  
   Component: React.FC<{}>;
 }[];
 
@@ -24,6 +27,16 @@ const tabs: TabsType = [
     label: "Facebook",
     index: 2,
     Component: TabTwo,
+  },
+  {
+    label: "Feedback",
+    index: 3,
+    Component: TabThree,
+  },
+  {
+    label: "Login",
+    index: 4,
+    Component: TabFour,
   },
 ];
 

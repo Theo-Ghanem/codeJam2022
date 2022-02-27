@@ -1,5 +1,5 @@
 body {
-  width: 600px;
+  width: 500px;
   height: 400px;
   background-color: #2b6777; /* extension background color*/
   margin: 0;
@@ -14,10 +14,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+/* custom scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 20px;
 }
 
 ::-webkit-scrollbar-track {
-  display: none;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #85898a;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
 }
