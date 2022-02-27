@@ -1,5 +1,6 @@
 const { default: axios } = require("axios");
 const Responses = require("./API_Responses");
+const Tensorflow = require("./tensorflow")
 exports.handler = async (event) => {
     const userToken = JSON.parse(event.body).userToken;
     const instaId = JSON.parse(event.body).instaId;
@@ -7,11 +8,15 @@ exports.handler = async (event) => {
     let postIds = allPosts.data.map(i=>({id:i.id}))
 
     let posts = await Promise.all(postIds.map(async(i)=>{
-        return axios.get(`https://graph.facebook.com/v13.0/${i.id}/comments?access_token=${pageToken}`)
+        return axios.get(`https://graph.facebook.com/v13.0/${i.id}/comments?access_token=${userToken}`)
     }))
-    //let page_impressions = objs.map(o=>o.data.data[0].values[0].value)
-   
-    let comments = posts.data.filter(k=> k.comments != undefined).map(j=>({comment: j.comments.data[0].message}))
-    let resp = {comments}
+    let comments = posts.filter(k=> k.data.data.length != 0).map(j=>(j.data.data[0].text))
+    const values = await Tensorflow.getAllPhraseValues(comments)
+    let sum = 0
+    values.forEach(value => { sum += value-0.7
+    });
+    let average = sum / values.length * 100
+
+    let resp = {average}
     return Responses._200(resp);
   };
