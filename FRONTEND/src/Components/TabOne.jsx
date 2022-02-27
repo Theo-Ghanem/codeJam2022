@@ -91,6 +91,79 @@ const TabOne = () => {
           paddingBottom: "10px",
         }}
       >
+        Daily Insights
+      </div>
+
+      <div style={{marginLeft: "auto", marginRight: "auto",width:"fit-content"}}>
+
+          {clickInfo && (
+            <table style={{ borderCollapse: "collapse", padding: "5px", borderColor: "#FFFFFF", color: "#666666", textAlign: "center", alignSelf: "center"}}>
+
+              <tr style={{border: "2px solid white",}}>
+                <td style={{border: "2px solid white",padding: "5px"}}>Profile Views:</td>
+                <td style={{border: "2px solid white",padding: "5px"}}>
+                  {
+                    clickInfo[0].value
+                  }
+                </td>
+                <td style={{border: "2px solid white", padding: "5px"}}>Text Message Clicks:
+                </td>
+                <td style={{border: "2px solid white",padding: "5px"}}>
+                  {
+                    clickInfo[3].value
+
+                  }
+                </td>
+              </tr>
+              <tr style={{border: "2px solid white", padding: "5px"}}>
+                <td style={{border: "2px solid white", padding: "5px"}}>Follower Count:</td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
+                  {
+                    clickInfo[1].value
+
+                  }
+                </td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
+                  
+                      Get Directions Clicks:
+
+                  
+                </td>
+                <td v>
+                  {
+                      clickInfo[4].value
+
+                  }
+                </td>
+              </tr>
+              <tr style={{border: "2px solid white", padding: "5px"}}>
+                <td style={{border: "2px solid white", padding: "5px"}}>Website Clicks:</td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
+                  {
+                    clickInfo[2].value
+
+                  }
+                </td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
+                  Email Contacts:
+                </td>
+                <td style={{border: "2px solid white", padding: "5px"}}>
+                  {
+                    clickInfo[5].value
+                  }
+                </td>
+              </tr>
+            </table>
+          )};
+          </div>      
+      <div
+        style={{
+          textAlign: "center",
+          fontWeight: "600",
+          paddingTop: "14px",
+          paddingBottom: "10px",
+        }}
+      >
         Impressions Data
       </div>
       <div
