@@ -59,3 +59,17 @@ functions:
           path: /all-posts
           method: POST
           cors: true
+  get-all-instagram-basics:
+    handler: lambdas/http-get-all-instagram-basics.handler
+    events:
+      - http:
+          path: /all-instagram-basics
+          method: POST
+          cors: true
+  get-all-ig-period-reach:
+    handler: lambdas/http-get-ig-period-reach.handler
+    events:
+      - http:
+          path: /ig-period-reach
+          method: POST
+          cors: true
