@@ -33,11 +33,51 @@ const TabOne: FC<{}> = () => {
   return (
     <Fragment>
       <h3>Instagram</h3>
-      <p>Here are your instagram stats</p>
-      <div>
-        <div>Username: {username}</div>
-        <div>Number of Posts:{numPosts}</div>
-        <img src={imgSrc} width={50} height={50} />
+      <div style={{ width: "100%" }}>
+        <div
+          style={{
+            width: "100%",
+          }}
+        >
+          <div
+            style={{
+              width: "150px",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            <div
+              style={{
+                marginLeft: "auto",
+                marginRight: "auto",
+                width: "fit-content",
+              }}
+            >
+              <img
+                src={imgSrc}
+                width={50}
+                height={50}
+                style={{
+                  borderRadius: "50%",
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  borderStyle: "solid",
+                  borderColor: "#333",
+                  borderWidth: "1px",
+                  boxShadow: "0px 0px 10px #555",
+                }}
+              />
+            </div>
+            <div style={{ textAlign: "center", fontWeight: "bolder" }}>
+              {username}
+            </div>
+            <div
+              style={{ textAlign: "center", fontSize: "0.9em", color: "#333" }}
+            >
+              {numPosts} posts
+            </div>
+          </div>
+        </div>
       </div>
     </Fragment>
   );
