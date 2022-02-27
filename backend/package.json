@@ -5,11 +5,14 @@
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "hardDeploy": "serverless deploy && npm run deployAll && npm run deploySentiment&& npm run deployAllEvents && npm run deployAllPosts && npm run deployPageBasics",
+    "hardDeploy": "serverless deploy && npm run deployAll && npm run deploySentiment&& npm run deployAllEvents && npm run deployAllPosts && npm run deployPageBasics  && npm run deployIgReach && npm run deployInstagramBasics  && npm run deployInstagramPosts",
     "deployAll": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-load-everything --zip-file fileb://deploy.zip",
     "deploySentiment": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-sentiment --zip-file fileb://deploy.zip",
     "deployAllEvents": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-all-events --zip-file fileb://deploy.zip",
     "deployAllPosts": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-all-posts --zip-file fileb://deploy.zip",
+    "deployIgReach": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-ig-period-reach --zip-file fileb://deploy.zip",
+    "deployInstagramBasics": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-instagram-basics --zip-file fileb://deploy.zip",
+    "deployInstagramPosts": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-instagram-posts --zip-file fileb://deploy.zip",
     "deployPageBasics": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-page-basics --zip-file fileb://deploy.zip",
     "deploy": "serverless deploy"
   },

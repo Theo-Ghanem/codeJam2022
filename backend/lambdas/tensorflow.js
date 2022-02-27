@@ -6,11 +6,11 @@ const Responses = {
       .data.data;
   },
   async getAllPhraseValues(phrases) {
-    return (
+    return JSON.parse((
       await axios.post(
-        `${endpoint}/predictAll?data=${encodeURI(JSON.stringify(phrases))}`
+        `${endpoint}/predictAll?data=${JSON.stringify(phrases)}`
       )
-    ).data.data;
+    ).data.data);
   },
 };
 
