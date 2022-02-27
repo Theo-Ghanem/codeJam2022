@@ -20,14 +20,14 @@ type TabsType = {
 // Tabs Array
 const tabs: TabsType = [
   {
-    label: "Instagram",
-    index: 2,
-    Component: TabOne,
-  },
-  {
     label: "Facebook",
     index: 1,
     Component: TabTwo,
+  },
+  {
+    label: "Instagram",
+    index: 2,
+    Component: TabOne,
   },
   {
     label: "Feedback",
@@ -35,14 +35,14 @@ const tabs: TabsType = [
     Component: TabThree,
   },
   {
-    label: "Login",
-    index: 5,
-    Component: TabFour,
-  },
-  {
     label: "Definitions",
     index: 4,
     Component: TabFive,
+  },
+  {
+    label: "Login",
+    index: 5,
+    Component: TabFour,
   },
 ];
 
@@ -51,8 +51,8 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1 style={{ color: "#fff" }}>See your social statistics!</h1>
-      <h2>Select a platform to view information:</h2>
+      <h1 style={{ color: "#fff" , fontFamily : "georgia" }}>See your social statistics!</h1>
+      <h2 style={{fontFamily: "georgia"}}>Select a platform to view information:</h2>
       <br />
       <Tabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
     </div>
