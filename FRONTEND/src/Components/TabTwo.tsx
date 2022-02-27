@@ -8,8 +8,10 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  Area,
+  AreaChart,
 } from "recharts";
-import { getEvents } from "../Endpoints";
+import { getEvents, getPosts } from "../Endpoints";
 const data = [
   {
     name: "Page A",
@@ -64,11 +66,16 @@ const recent_post_data = {
 const TabTwo: FC<{}> = () => {
   const [pageName, setPageName] = useState("ECSESS Page");
   const [events, setEvents] = useState(data);
+  const [posts, setPosts] = useState([{ time: 0, display_time: 0 }]);
   const loadEvents = async () => {
     setEvents(await getEvents());
   };
+  const loadPosts = async () => {
+    setPosts(await getPosts());
+  };
   useEffect(() => {
     loadEvents();
+    loadPosts();
   }, []);
 
   return (
@@ -122,34 +129,24 @@ const TabTwo: FC<{}> = () => {
           <LineChart
             width={300}
             height={200}
-            data={events}
+            data={posts}
             margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="time" />
             <YAxis
-              label={{ value: "My Y Axis", angle: -90, position: "left" }}
+              label={{ value: "Impressions", angle: -90, position: "left" }}
             />
             <Tooltip
-              labelFormatter={(t) => data.find((d) => d.time === t)?.name}
+              labelFormatter={(t) =>
+                posts.find((d) => d.time === t)?.display_time
+              }
             />
             <Legend verticalAlign="top" height={36} />
             <Line
               type="monotone"
-              dataKey="going"
+              dataKey="impressions"
               stroke="#8884d8"
-              activeDot={{ r: 8 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="interested"
-              stroke="#386037"
-              activeDot={{ r: 8 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="no reply"
-              stroke="#573950"
               activeDot={{ r: 8 }}
             />
           </LineChart>
