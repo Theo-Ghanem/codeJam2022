@@ -1,4 +1,4 @@
-import React, { FC, Fragment, PureComponent, useState } from "react";
+import React, { FC, Fragment, PureComponent, useEffect, useState } from "react";
 import {
   LineChart,
   Line,
@@ -9,6 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { getEvents } from "../Endpoints";
 const data = [
   {
     name: "Page A",
@@ -46,15 +47,35 @@ const data = [
     time: 2181,
   },
 ];
+const recent_post_data = {
+  likes: 500,
+  comments: 20,
+  shares: 40,
+  impressions: 600,
+  impression_data: [
+    {
+      name: "",
+      time: "",
+      impressions: "",
+    },
+  ],
+};
 
 const TabTwo: FC<{}> = () => {
   const [pageName, setPageName] = useState("ECSESS Page");
   const [events, setEvents] = useState(data);
+  const loadEvents = async () => {
+    setEvents(await getEvents());
+  };
+  useEffect(() => {
+    loadEvents();
+  }, []);
+
   return (
     <div style={{ overflow: "auto", height: "300px" }}>
       <h3>{pageName}</h3>
 
-      <div style={{ width: "300px", height: "200px" }}>
+      <div style={{ width: "400px", height: "300px" }}>
         <div style={{ textAlign: "center", fontWeight: "600" }}>Events</div>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
@@ -64,12 +85,12 @@ const TabTwo: FC<{}> = () => {
             margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="time" />
+            <XAxis dataKey="time" type="number" domain={["auto", "auto"]} />
             <YAxis
               label={{ value: "My Y Axis", angle: -90, position: "left" }}
             />
             <Tooltip
-              labelFormatter={(t) => data.find((d) => d.time === t)?.name}
+              labelFormatter={(t) => events.find((d) => d.time == t)?.name}
             />
             <Legend verticalAlign="top" height={36} />
             <Line

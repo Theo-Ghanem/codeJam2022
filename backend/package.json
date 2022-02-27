@@ -5,9 +5,13 @@
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "serverless deploy && npm run deployAll && npm run deploySentiment",
+    "hardDeploy": "serverless deploy && npm run deployAll && npm run deploySentiment&& npm run deployAllEvents && npm run deployAllPosts && npm run deployPageBasics",
     "deployAll": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-load-everything --zip-file fileb://deploy.zip",
-    "deploySentiment": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-sentiment --zip-file fileb://deploy.zip"
+    "deploySentiment": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-sentiment --zip-file fileb://deploy.zip",
+    "deployAllEvents": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-all-events --zip-file fileb://deploy.zip",
+    "deployAllPosts": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-all-posts --zip-file fileb://deploy.zip",
+    "deployPageBasics": "zip -r deploy.zip . && aws lambda update-function-code --function-name code-jam-dev-get-page-basics --zip-file fileb://deploy.zip",
+    "deploy": "serverless deploy"
   },
   "author": "Ryan Reszetnik",
   "license": "ISC",
