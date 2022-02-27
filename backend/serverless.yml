@@ -31,3 +31,10 @@ functions:
           path: /
           method: GET
           cors: true
+  get-sentiment:
+    handler: lambdas/http-get-sentiment.handler
+    events:
+      - http:
+          path: /sentiment
+          method: POST
+          cors: true
