@@ -1,80 +1,45 @@
-import React from 'react';
-import './App.css';
-import { DOMMessage, DOMMessageResponse } from './types';
+import React, { useState } from "react";
+import "./styles.css";
+import Tabs from "./Components/Tabs";
+// Tabs Components
+import TabOne from "./Components/TabOne";
+import TabTwo from "./Components/TabTwo";
+import TabThree from "./Components/TabThree";
 
-function App() {
-  const [title, setTitle] = React.useState('');
-  const [headlines, setHeadlines] = React.useState<string[]>([]);
+type TabsType = {
+  label: string;
+  index: number;
+  Component: React.FC<{}>;
+}[];
 
-  React.useEffect(() => {
-    /**
-     * We can't use "chrome.runtime.sendMessage" for sending messages from React.
-     * For sending messages from React we need to specify which tab to send it to.
-     */
-    chrome.tabs && chrome.tabs.query({
-      active: true,
-      currentWindow: true
-    }, tabs => {
-      /**
-       * Sends a single message to the content script(s) in the specified tab,
-       * with an optional callback to run when a response is sent back.
-       *
-       * The runtime.onMessage event is fired in each content script running
-       * in the specified tab for the current extension.
-       */
-      chrome.tabs.sendMessage(
-        tabs[0].id || 0,
-        { type: 'GET_DOM' } as DOMMessage,
-        (response: DOMMessageResponse) => {
-          setTitle(response.title);
-          setHeadlines(response.headlines);
-        });
-    });
-  });
+// Tabs Array
+const tabs: TabsType = [
+  {
+    label: "Instagram",
+    index: 1,
+    Component: TabOne
+  },
+  {
+    label: "Facebook",
+    index: 2,
+    Component: TabTwo
+  },
+  {
+    label: "Twitter",
+    index: 3,
+    Component: TabThree
+  }
+];
+
+export default function App() {
+  const [selectedTab, setSelectedTab] = useState<number>(tabs[0].index);
 
   return (
     <div className="App">
-      <h1>INSERT APP TITLE HERE</h1>
-{/*       
-      <div class="result">
-      
-        <p><strong>Total cases: </strong><span class="cases"></span></p>
-        <p>
-          <strong>Total recovered: </strong> <span class="recovered"></span>
-        </p>
-        <p><strong>Total deaths: </strong><span class="deaths"></span></p>
-    </div> */}
-
-
-      <ul className="SEOForm">
-        <li className="SEOValidation">
-          <div className="SEOValidationField">
-            <span className="SEOValidationFieldTitle">Title</span>
-            <span className={`SEOValidationFieldStatus ${title.length < 30 || title.length > 65 ? 'Error' : 'Ok'}`}>
-              {title.length} Characters
-            </span>
-          </div>
-          <div className="SEOVAlidationFieldValue">
-            {title}
-          </div>
-        </li>
-
-        <li className="SEOValidation">
-          <div className="SEOValidationField">
-            <span className="SEOValidationFieldTitle">Main Heading</span>
-            <span className={`SEOValidationFieldStatus ${headlines.length !== 1 ? 'Error' : 'Ok'}`}>
-              {headlines.length}
-            </span>
-          </div>
-          <div className="SEOVAlidationFieldValue">
-            <ul>
-              {headlines.map((headline, index) => (<li key={index}>{headline}</li>))}
-            </ul>
-          </div>
-        </li>
-      </ul>
+      <h1>See your social statistics!</h1>
+      <h2>Select a platform to view information:</h2>
+      <br />
+      <Tabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
     </div>
   );
 }
-
-export default App;

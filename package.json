@@ -16,13 +16,11 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "typescript": "^4.3.5",
-    "web-vitals": "^1.1.2",
-    "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2"
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "INLINE_RUNTIME_CHUNK=false craco build",
+    "build": "cross-env INLINE_RUNTIME_CHUNK=false craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -45,6 +43,10 @@
     ]
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.151"
+    "@types/chrome": "^0.0.151",
+    "cross-env": "^7.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.9.2"
   }
+  
 }
