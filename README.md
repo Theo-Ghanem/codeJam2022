@@ -45,3 +45,10 @@ We would like to add other social media capabilities such as twitter, linkedin, 
 ***
 ## Video demo link
 https://youtu.be/2ha0mmli_i4
+
+## Screenshots
+![SC 1](https://github.com/Theo-Ghanem/codeJam2022/blob/a0ca0cb9c373947c909accac03d94f9b74225ae3/images/social%20statistics.jpg)
+![SC 2](https://github.com/Theo-Ghanem/codeJam2022/blob/a0ca0cb9c373947c909accac03d94f9b74225ae3/images/social%20statistics%202%20.jpg)
+![SC 3](https://github.com/Theo-Ghanem/codeJam2022/blob/a0ca0cb9c373947c909accac03d94f9b74225ae3/images/social%20statistics%203%20.jpg)
+![SC 4](https://github.com/Theo-Ghanem/codeJam2022/blob/a0ca0cb9c373947c909accac03d94f9b74225ae3/images/social%20statistics%204%20.jpg)
+![SC 5](https://github.com/Theo-Ghanem/codeJam2022/blob/a0ca0cb9c373947c909accac03d94f9b74225ae3/images/social%20statistics%205%20.jpg)
